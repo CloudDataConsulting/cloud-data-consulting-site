@@ -3,9 +3,12 @@
 # Webflow Content Publishing Script
 # Publishes blog posts and other CMS content via API
 
+# Source environment variables
+source ./env.sh
+
 if [ -z "$WEBFLOW_API_TOKEN" ] || [ -z "$WEBFLOW_SITE_ID" ]; then
-    echo "Error: Please set WEBFLOW_API_TOKEN and WEBFLOW_SITE_ID environment variables"
-    echo "Get these from Webflow Settings > Integrations"
+    echo "Error: WEBFLOW_API_TOKEN or WEBFLOW_SITE_ID not set"
+    echo "Check your env.sh file and 1Password credentials"
     exit 1
 fi
 

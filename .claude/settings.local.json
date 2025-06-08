@@ -5,7 +5,13 @@
       "Bash(gh repo create:*)",
       "Bash(git add:*)",
       "Bash(git commit:*)",
-      "Bash(chmod:*)"
+      "Bash(chmod:*)",
+      "Bash(git push:*)",
+      "Bash(cp:*)",
+      "Bash(./test_env.sh:*)",
+      "Bash(./scripts/webflow-api-test.sh:*)",
+      "WebFetch(domain:developers.webflow.com)",
+      "Bash(./scripts/find-site-id.sh:*)"
     ],
     "deny": []
   }

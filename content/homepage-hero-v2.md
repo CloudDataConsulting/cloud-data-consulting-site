@@ -1,31 +1,23 @@
-# Homepage Hero - AI-Ready Data Program
+# Homepage Hero — Cloud Data Consulting
 
 ## Headline
-**Your AI Strategy Starts With Your Data Strategy**
+Your AI Strategy Starts With Your Data Strategy
 
-## Subheadline  
-Build a Modern Data Stack that Delivers Business Value Fast — Without the $50M+ Budget or 2-Year Timeline
+## Subheadline
+Build a modern data stack that delivers business value fast.  
+Unlock actionable insights, control costs, and prepare your organization for the AI-powered future.
 
-## Value Proposition
-Most companies rush into AI before fixing their data foundation. We help fast-growing companies ($50M+ revenue) get their data house in order so they can actually use AI to drive ROI.
+## Call to Action
+**Button:** Get Your Free AI Readiness Assessment
 
-## CTA Primary
-**Get Your Free AI Readiness Assessment**
+## Visual Metaphor
+A stylized cloud and data pipeline flowing into a glowing “AI” core, representing transformation and readiness.
 
-## CTA Secondary
-**See Our DATA Method™**
+## Supporting Points
+- Snowflake Cost Audit, AI Readiness, and Data Stack Assessment — quick wins for fast-growing teams.
+- Trusted by data-driven leaders in Retail, Healthcare, and Financial Services.
+- 125+ years of combined experience, 19 Snowflake data warehouses delivered.
 
-## Trust Indicators
-- 125+ years combined experience
-- 19 Snowflake data warehouses delivered
-- $10M+ in Snowflake cost savings for clients
+---
 
-## Pain Points Addressed
-- Stale data and poor time-to-insight
-- Fragile legacy pipelines
-- High Snowflake costs from poor design
-- Data silos blocking AI initiatives
-
-## Social Proof Hook
-*"Their cost optimization saved us $2M annually while improving data freshness from days to minutes."*
-— CTO, Fortune 500 Retailer
+_Last updated: 2025-06-08_

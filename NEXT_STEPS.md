@@ -5,14 +5,16 @@
 1. **Get API credentials**: Settings → Integrations → Generate API Token
 2. **Set up environment**:
 ```bash
-# Copy template and add your credentials
-cp .env.template .env
-# Edit .env with your actual API token and site ID
+# Source environment variables (includes 1Password integration)
+. ./env.sh
 ```
 
-3. **Test API connection**:
+3. **Test environment and API connection**:
 ```bash
-source .env
+# Test that keys are loaded
+./test_env.sh
+
+# Test Webflow API
 ./scripts/webflow-api-test.sh
 ```
 
