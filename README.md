@@ -54,3 +54,10 @@ cloud-data-site/
 │   └── index.html
 ├── scripts/                # optional for API calls or blog publishing
 └── .env
+
+# Bernie's Notes
+I have downloaded the Relume wireframe content as: 
+- markdown file - ./wireframe/cdc-wireframe1.md 
+- html formated pages - ./wireframe/cloud-data-consulting/*
+  1 Relume said we would need this: `npm i tailwindcss-animate @tailwindcss/typography` 
+  So I installed it. 
