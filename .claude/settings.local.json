@@ -13,7 +13,11 @@
       "WebFetch(domain:developers.webflow.com)",
       "Bash(./scripts/find-site-id.sh:*)",
       "Bash(rm:*)",
-      "Bash(ls:*)"
+      "Bash(ls:*)",
+      "Bash(mkdir:*)",
+      "WebFetch(domain:www.clouddataconsulting.com)",
+      "Bash(mv:*)",
+      "Bash(true)"
     ],
     "deny": []
   }
