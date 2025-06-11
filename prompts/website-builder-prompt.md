@@ -1,12 +1,12 @@
-# Complete Lovable.dev prompt for Cloud Data Consulting
+# Generic Website Builder Prompt for Cloud Data Consulting
 
 ## Company Overview
-Cloud Data Consulting is a boutique data consulting firm specializing in AI-ready data architecture for mid-market to enterprise companies ($50M+ revenue). We transform business AI ambitions into technical reality through our proprietary D.A.T.A.S. methodology (Diagnose, Analyze, Transform, Accelerate, Scale). Our core message: "Your AI strategy depends on your Data Strategy."
+Cloud Data Consulting is a boutique data consulting firm specializing in AI-ready data architecture for mid-market to enterprise companies ($50M+ revenue). We transform business AI ambitions into technical reality through our proprietary D.A.T.A.S. methodology (Diagnose, Analyze, Transform, Accelerate, Scale). Our core message: "Your AI Strategy Depends on Your Data Strategy."
 
 ## Target Audience
 **Primary**: C-suite executives (CDOs, CTOs, CIOs) at $50M-$500M revenue companies in retail, manufacturing, financial services, and healthcare who are struggling to implement AI initiatives due to poor data foundations.
 
-**Secondary**: Data engineering managers and BI leads who need strategic partnership for Snowflake-based modern data stack implementations.
+**Secondary**: Data engineering managers and BI leads who need strategic partnership for modern data stack implementations.
 
 ## Site Structure & Content Requirements
 
@@ -15,7 +15,7 @@ Cloud Data Consulting is a boutique data consulting firm specializing in AI-read
 - Subheading: "We make your data AI-ready. Only 13% of companies are prepared for AI - join the leaders."
 - Primary CTA: "Get Your AI Readiness Score" (leads to assessment)
 - Secondary CTA: "View Our Methodology" 
-- Trust indicators: "125+ years combined experience, 19 Snowflake implementations delivered"
+- Trust indicators: "125+ years combined experience, 19+ modern data implementations delivered"
 
 **Problem Section**: "Why 75% of AI Projects Fail"
 - Data silos and poor quality
@@ -26,7 +26,7 @@ Cloud Data Consulting is a boutique data consulting firm specializing in AI-read
 **Solution Section**: "The D.A.T.A.S. Methodology"
 - **Diagnose**: AI readiness assessment across 6 dimensions
 - **Analyze**: Identify high-impact AI opportunities in your data ecosystem
-- **Transform**: Build AI-ready modern data architecture on Snowflake
+- **Transform**: Build AI-ready modern data architecture
 - **Accelerate**: Implement quick-win projects in 30 days
 - **Scale**: Create governance framework for enterprise AI adoption
 
@@ -43,8 +43,8 @@ Cloud Data Consulting is a boutique data consulting firm specializing in AI-read
 - "Most companies score below 30% - where do you stand?"
 
 **AI-Ready Platform Implementation** ($150K-$350K, 3-6 months)
-- Modern data stack on Snowflake
-- dbt transformation layer
+- Modern data stack architecture
+- Data transformation layer implementation
 - Governance and cost optimization
 - BI/analytics integration
 - ML/AI pipeline preparation
@@ -63,14 +63,14 @@ Cloud Data Consulting is a boutique data consulting firm specializing in AI-read
 
 ### About Page
 - "125+ Years of Combined Experience"
-- Team credentials and Snowflake partnerships
+- Team credentials and technology partnerships
 - Company mission: Bridging business AI ambition with technical capability
 - "We implement strategy, not just recommend"
 
 ### Resources/Blog
 - "The Hidden Cost of Poor Data Quality in AI"
-- "Snowflake AI Features You're Not Using"
-- "Why Your CDO Should Care About dbt"
+- "Modern Data Stack Features You're Not Using"
+- "Why Your CDO Should Care About Data Engineering"
 - Industry-specific AI readiness guides
 - ROI calculators and assessment tools
 
@@ -89,13 +89,21 @@ Cloud Data Consulting is a boutique data consulting firm specializing in AI-read
 - Mobile-responsive and fast-loading
 
 **Color Scheme**: 
-- Primary: Professional blue (trust, data, technology)
-- Accent: Bright orange/green (growth, transformation)
-- Neutral: Grays and whites for readability
+- Primary: Professional blue (#3156CF) - trust, data, technology
+- Dark Blue: #002B7F - headers, navigation
+- Accent: Professional orange (#F79743) - CTA buttons only
+- Background: White (#FFFFFF) and light gray (#F5F7FA)
+- Text: Dark gray (#1F2430) for readability
+
+**Typography & Accessibility**:
+- Minimum 4.5:1 contrast ratio for all text
+- Clear visual hierarchy
+- Professional, readable fonts
+- Never use yellow text on light backgrounds
 
 **Components Needed**:
 - Hero sections with assessment CTAs
-- Service feature grids
+- Service feature grids with clear pricing
 - Methodology/process flows
 - Customer testimonial carousels
 - Interactive ROI calculators
@@ -122,10 +130,19 @@ Cloud Data Consulting is a boutique data consulting firm specializing in AI-read
 4. "Download Guide" (lead magnets)
 
 ## Special Requirements
-- HubSpot form integration for lead capture
+- Lead capture form integration capability
 - Fast loading for enterprise users
-- SEO optimized for "AI readiness," "data strategy," "Snowflake consulting"
+- SEO optimized for "AI readiness," "data strategy," and related terms
 - Professional credibility that competes with Big 4 consulting
 - Clear differentiation from pure-play engineering firms
+- Mobile-responsive design
+- Clean, semantic HTML structure for future development
+
+## Key Differentiators
+- Strategic business focus over pure technical delivery
+- Proven methodology (D.A.T.A.S.) with measurable outcomes
+- Enterprise-grade approach suitable for Fortune 500
+- Bridge between business ambition and technical execution
+- Industry-specific expertise in retail, manufacturing, financial services, healthcare
 
 Generate a complete professional B2B data consulting website that positions Cloud Data Consulting as the essential bridge between business AI ambitions and technical capability, targeting Fortune 500 decision-makers who control AI initiative budgets.

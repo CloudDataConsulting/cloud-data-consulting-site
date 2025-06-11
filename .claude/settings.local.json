@@ -11,7 +11,9 @@
       "Bash(./test_env.sh:*)",
       "Bash(./scripts/webflow-api-test.sh:*)",
       "WebFetch(domain:developers.webflow.com)",
-      "Bash(./scripts/find-site-id.sh:*)"
+      "Bash(./scripts/find-site-id.sh:*)",
+      "Bash(rm:*)",
+      "Bash(ls:*)"
     ],
     "deny": []
   }

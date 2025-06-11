@@ -1,63 +1,87 @@
-# Cloud Data Consulting — Site Content & AI Workflow
+# Cloud Data Consulting — Website Development
 
-This repo is the foundation for building, iterating, and managing the content, layout, and structure of the Cloud Data Consulting website using Claude (and later Cline, ChatGPT, or others). The live site is currently being built in [Webflow](https://webflow.com), but all copy, embedded code, and reusable sections will be managed here in Git for version control and future portability.
+This repository contains the complete website for Cloud Data Consulting, built using vanilla HTML, CSS, and JavaScript without any external dependencies or build tools. The site is developed using AI-assisted workflows for rapid iteration and content generation.
 
-## 🧠 Workflow Overview
+## 🎯 Technology Stack
 
-1. **Prompt Claude** using files in `/prompts` to generate structured content.
-2. **Save generated sections** to `/content/` or `/embeds/` as `.md` or `.html` files.
-3. **Paste content** into Webflow manually (Designer or CMS).
-4. (Optional) Automate CMS publishing via [Webflow API](https://developers.webflow.com/docs/api-reference/).
-5. (Later) Port to Astro or Hugo if needed using `/content` structure.
+- **HTML5**: Semantic markup for accessibility and SEO
+- **CSS3**: Modern CSS with custom properties, Grid, and Flexbox
+- **JavaScript ES6+**: Vanilla JavaScript for interactivity
+- **No Dependencies**: No frameworks, no build tools, no npm packages
 
-## 📁 Folder Structure
+## 🧠 Development Workflow
 
-- `prompts/` — Markdown prompts for Claude, GPT, or other LLMs.
-- `content/` — Site content (markdown or HTML sections).
-  - `use-cases/`, `blog/`, `services/`, etc.
-- `embeds/` — HTML/JS for interactive or reusable blocks.
-- `scripts/` — (Optional) Python or shell scripts for interacting with APIs.
-- `webflow-export/` — (Optional) exported code from Webflow if hosting externally.
-- `.env` — Store API keys for Claude, Webflow, etc. (ignored by Git).
+1. **Generate Content** using AI prompts in `/prompts/`
+2. **Create HTML Pages** with semantic structure in `/src/`
+3. **Style with CSS** using modern CSS features
+4. **Add Interactivity** with vanilla JavaScript
+5. **Test Locally** by opening HTML files in browser
 
-## 🚀 Recommended Tools
+## 📁 Project Structure
 
-- [Claude Code](https://claude.ai/)
-- [Cline](https://github.com/ericmjl/cline)
-- [ChatGPT CLI or Aider](https://github.com/paul-gauthier/aider)
-- GitHub + VS Code for collaboration and versioning
+```
+cloud-data-consulting-site/
+├── src/                    # Website source files
+│   ├── index.html         # Homepage
+│   ├── about.html         # About page
+│   ├── services.html      # Services page
+│   ├── contact.html       # Contact page
+│   ├── css/               # Stylesheets
+│   │   ├── main.css       # Main styles
+│   │   └── components.css # Component styles
+│   └── js/                # JavaScript files
+│       └── main.js        # Main functionality
+├── assets/                # Static assets
+│   ├── images/            # Images and graphics
+│   └── fonts/             # Custom fonts (if any)
+├── content/               # Content in markdown format
+│   ├── services/          # Service descriptions
+│   └── blog/              # Blog content
+├── prompts/               # AI prompts for generation
+│   └── website-builder-prompt.md
+└── wireframe/             # Legacy wireframe content
+```
 
-## 🗺️ Next Steps
+## 🚀 Getting Started
 
-1. Run `git init` and push this repo to GitHub.
-2. Use the `/prompts/homepage-hero.md` with Claude to generate your homepage intro.
-3. Save the result to `/content/homepage-hero.md` and paste it into Webflow.
-4. Repeat for service pages, CTAs, testimonials, etc.
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd cloud-data-consulting-site
+   ```
 
----
+2. **Open locally**
+   ```bash
+   # Open index.html directly in browser or use a local server
+   python -m http.server 8000  # If you want a local server
+   ```
 
-Recommended Repo structure
-cloud-data-site/
-├── .gitignore
-├── README.md
-├── prompts/
-│   ├── homepage-hero.md
-│   ├── ai-readiness-service.md
-│   └── tone-guide.md
-├── content/
-│   ├── use-cases/
-│   └── blog/
-├── embeds/
-│   ├── contact-form.js
-│   └── cta-section.html
-├── webflow-export/         # optional later
-│   └── index.html
-├── scripts/                # optional for API calls or blog publishing
-└── .env
+3. **Start developing**
+   - Edit HTML files in `/src/`
+   - Modify styles in `/src/css/`
+   - Add JavaScript in `/src/js/`
 
-# Bernie's Notes
-I have downloaded the Relume wireframe content as: 
-- markdown file - ./wireframe/cdc-wireframe1.md 
-- html formated pages - ./wireframe/cloud-data-consulting/*
-  1 Relume said we would need this: `npm i tailwindcss-animate @tailwindcss/typography` 
-  So I installed it. 
+## 🎨 Design System
+
+- **Colors**: Professional blue (#3156CF), dark blue (#002B7F), orange accent (#F79743)
+- **Typography**: System fonts for fast loading and accessibility
+- **Layout**: CSS Grid and Flexbox for responsive design
+- **Components**: Modular CSS classes for reusability
+
+## ✨ Key Features
+
+- Fully responsive design
+- Semantic HTML for accessibility
+- Modern CSS without preprocessors
+- Vanilla JavaScript for enhanced UX
+- Fast loading with no external dependencies
+- SEO optimized structure
+
+## 🔧 Development Notes
+
+- All code must be vanilla HTML/CSS/JS
+- No build process required
+- Focus on semantic, accessible markup
+- Use modern CSS features (custom properties, Grid, Flexbox)
+- Keep JavaScript simple and functional
+- Browser support: Modern browsers with ES6+ support 

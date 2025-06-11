@@ -1,9 +1,3 @@
-# Webflow API Configuration
-# Copy this to .env and fill in your actual values from Webflow Settings > Integrations
-
-export WEBFLOW_API_TOKEN=$(op item get "API-Cred-Webflow-$AI_ENGINEER" --fields credential --reveal)
-export WEBFLOW_SITE_ID=6844e9a434000d9981cfd1fb
-
 export ANTHROPIC_API_KEY=$(op item get "API-Cred-Anthropic-$AI_ENGINEER" --fields credential --reveal)
 export OPENAI_API_KEY=$(op item get "API-Cred-openai-$AI_ENGINEER" --fields credential --reveal)
 export YOUTUBE_API_KEY=$(op item get "API-Cred-Google-Youtube-data-$AI_ENGINEER" --fields credential --reveal)
