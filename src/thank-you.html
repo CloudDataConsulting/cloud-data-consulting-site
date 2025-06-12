@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You - Cloud Data Consulting, Inc.</title>
+    <meta name="description" content="Thank you for contacting Cloud Data Consulting. We'll be in touch within 24 hours to discuss your AI transformation journey.">
+    <link rel="icon" type="image/png" href="../assets/images/logos/Favicon_200px.png">
+    <link rel="apple-touch-icon" href="../assets/images/logos/Favicon_400px.jpg">
+    <style>
+        :root {
+            --color-primary: #3156CF;
+            --color-dark-blue: #002B7F;
+            --color-accent: #F79743;
+            --color-white: #FFFFFF;
+            --color-light-gray: #F5F7FA;
+            --color-text-dark: #1F2430;
+            --color-text-medium: #6B7280;
+            --color-gradient-primary: linear-gradient(135deg, #3156CF 0%, #4F6FD8 100%);
+            --color-gradient-hero: linear-gradient(135deg, #F5F7FA 0%, #FFFFFF 50%, #F0F4FF 100%);
+            --font-family: 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            --font-size-base: 1rem;
+            --font-size-lg: 1.125rem;
+            --font-size-xl: 1.25rem;
+            --font-size-3xl: 1.875rem;
+            --font-size-4xl: 2.25rem;
+            --spacing-4: 1rem;
+            --spacing-6: 1.5rem;
+            --spacing-8: 2rem;
+            --spacing-16: 4rem;
+            --border-radius: 0.75rem;
+            --box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --transition-normal: 0.3s ease-out;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap');
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            font-family: var(--font-family);
+            font-size: var(--font-size-base);
+            line-height: 1.6;
+            color: var(--color-text-dark);
+            background: var(--color-gradient-hero);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container { max-width: 800px; margin: 0 auto; padding: 0 var(--spacing-4); }
+        .thank-you-card {
+            background: var(--color-white);
+            padding: var(--spacing-16);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            text-align: center;
+        }
+
+        h1 { font-size: var(--font-size-4xl); font-weight: 700; margin-bottom: var(--spacing-6); color: var(--color-dark-blue); }
+        h2 { font-size: var(--font-size-3xl); font-weight: 600; margin-bottom: var(--spacing-4); color: var(--color-primary); }
+        p { margin-bottom: var(--spacing-4); color: var(--color-text-medium); font-size: var(--font-size-lg); }
+
+        .checkmark {
+            width: 80px;
+            height: 80px;
+            background: var(--color-gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--spacing-6);
+            color: var(--color-white);
+            font-size: 2rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--spacing-4) var(--spacing-8);
+            font-size: var(--font-size-base);
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: var(--border-radius);
+            background: var(--color-gradient-primary);
+            color: var(--color-white);
+            transition: all var(--transition-normal);
+            margin: var(--spacing-4) var(--spacing-4) 0 0;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(49, 86, 207, 0.3);
+        }
+
+        .next-steps {
+            background: var(--color-light-gray);
+            padding: var(--spacing-6);
+            border-radius: var(--border-radius);
+            margin-top: var(--spacing-8);
+            text-align: left;
+        }
+
+        .step {
+            margin-bottom: var(--spacing-4);
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .step-number {
+            background: var(--color-primary);
+            color: var(--color-white);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-right: var(--spacing-4);
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="thank-you-card">
+            <div class="checkmark">✓</div>
+            
+            <h1>Thank You!</h1>
+            <h2>We've Received Your Message</h2>
+            
+            <p>
+                Thank you for your interest in Cloud Data Consulting. We're excited to help you transform your AI ambitions into technical reality.
+            </p>
+            
+            <p>
+                Our team will review your information and respond within <strong>24 hours</strong> to schedule your free consultation.
+            </p>
+            
+            <div class="next-steps">
+                <h3 style="color: var(--color-dark-blue); margin-bottom: var(--spacing-4); text-align: center;">What Happens Next?</h3>
+                
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div>
+                        <strong>Review & Response (24 hours)</strong><br>
+                        <span style="color: var(--color-text-medium);">We'll review your submission and send a personalized response</span>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div>
+                        <strong>Discovery Call (30 minutes)</strong><br>
+                        <span style="color: var(--color-text-medium);">Free consultation to understand your AI goals and data challenges</span>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div>
+                        <strong>Custom Roadmap</strong><br>
+                        <span style="color: var(--color-text-medium);">Receive a preliminary assessment and recommended next steps</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="margin-top: var(--spacing-8);">
+                <a href="index.html" class="btn">Return to Homepage</a>
+                <a href="about.html" class="btn" style="background: transparent; color: var(--color-primary); border: 2px solid var(--color-primary);">Learn More About Us</a>
+            </div>
+            
+            <div style="margin-top: var(--spacing-8); padding-top: var(--spacing-6); border-top: 1px solid var(--color-light-gray);">
+                <p style="font-size: var(--font-size-base); color: var(--color-text-medium);">
+                    <strong>Questions?</strong> Email us directly at 
+                    <a href="mailto:info@clouddataconsulting.com" style="color: var(--color-primary); text-decoration: none;">info@clouddataconsulting.com</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

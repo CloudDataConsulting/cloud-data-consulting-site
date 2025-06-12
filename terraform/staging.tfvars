@@ -1,0 +1,5 @@
+environment  = "staging"
+domain_name  = "clouddataconsulting.io"
+aws_region   = "us-east-1"
+aws_profile  = "cdc-prd"
+project_name = "cdc"

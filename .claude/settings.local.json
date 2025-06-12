@@ -17,7 +17,10 @@
       "Bash(mkdir:*)",
       "WebFetch(domain:www.clouddataconsulting.com)",
       "Bash(mv:*)",
-      "Bash(true)"
+      "Bash(true)",
+      "Bash(node:*)",
+      "Bash(./test-website.sh:*)",
+      "Bash(grep:*)"
     ],
     "deny": []
   }

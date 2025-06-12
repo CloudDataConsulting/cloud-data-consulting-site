@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Cloud Data Consulting, Inc.</title>
+    <meta name="description" content="Ready to transform your AI strategy? Contact Cloud Data Consulting for expert data strategy consulting and AI readiness assessment.">
+    <link rel="icon" type="image/png" href="../assets/images/logos/Favicon_200px.png">
+    <link rel="apple-touch-icon" href="../assets/images/logos/Favicon_400px.jpg">
+    <style>
+        /* Include main styles inline */
+        :root {
+            --color-primary: #3156CF;
+            --color-primary-light: #4F6FD8;
+            --color-dark-blue: #002B7F;
+            --color-accent: #F79743;
+            --color-accent-light: #FFA55C;
+            --color-white: #FFFFFF;
+            --color-light-gray: #F5F7FA;
+            --color-text-dark: #1F2430;
+            --color-text-medium: #6B7280;
+            --color-border: #E5E7EB;
+            --color-gradient-primary: linear-gradient(135deg, #3156CF 0%, #4F6FD8 100%);
+            --color-gradient-accent: linear-gradient(135deg, #F79743 0%, #FFA55C 100%);
+            --color-gradient-hero: linear-gradient(135deg, #F5F7FA 0%, #FFFFFF 50%, #F0F4FF 100%);
+            
+            --font-family: 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            --font-size-base: 1rem;
+            --font-size-lg: 1.125rem;
+            --font-size-xl: 1.25rem;
+            --font-size-2xl: 1.5rem;
+            --font-size-3xl: 1.875rem;
+            --font-size-4xl: 2.25rem;
+            --font-size-5xl: 3rem;
+            
+            --spacing-2: 0.5rem;
+            --spacing-3: 0.75rem;
+            --spacing-4: 1rem;
+            --spacing-6: 1.5rem;
+            --spacing-8: 2rem;
+            --spacing-12: 3rem;
+            --spacing-16: 4rem;
+            
+            --border-radius: 0.75rem;
+            --border-radius-xl: 1.5rem;
+            --box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --box-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            
+            --transition-normal: 0.3s ease-out;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap');
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            font-family: var(--font-family);
+            font-size: var(--font-size-base);
+            line-height: 1.6;
+            color: var(--color-text-dark);
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 var(--spacing-4); }
+        .section { padding: var(--spacing-16) 0; }
+        .section-light { background-color: var(--color-light-gray); }
+        .grid { display: grid; gap: var(--spacing-8); }
+        .grid-2 { grid-template-columns: 1fr; }
+        .items-center { align-items: center; }
+        .text-center { text-align: center; }
+        .text-large { font-size: var(--font-size-lg); }
+        .text-primary { color: var(--color-primary); }
+
+        h1 { font-size: var(--font-size-4xl); font-weight: 700; line-height: 1.2; margin-bottom: var(--spacing-6); color: var(--color-dark-blue); }
+        h2 { font-size: var(--font-size-3xl); font-weight: 600; line-height: 1.3; margin-bottom: var(--spacing-4); color: var(--color-dark-blue); }
+        h3 { font-size: var(--font-size-xl); font-weight: 600; margin-bottom: var(--spacing-3); color: var(--color-dark-blue); }
+        p { margin-bottom: var(--spacing-4); color: var(--color-text-medium); }
+
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding: var(--spacing-4) 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container { display: flex; align-items: center; justify-content: space-between; }
+        .logo { font-size: var(--font-size-xl); font-weight: 700; color: var(--color-dark-blue); text-decoration: none; }
+        .nav-links { display: flex; list-style: none; gap: var(--spacing-8); }
+        .nav-links a { text-decoration: none; color: var(--color-text-dark); font-weight: 500; transition: color 0.2s ease; }
+        .nav-links a:hover { color: var(--color-primary); }
+
+        .hero {
+            padding: var(--spacing-16) 0;
+            background: var(--color-gradient-hero);
+        }
+
+        .contact-form-container {
+            background: var(--color-white);
+            padding: var(--spacing-8);
+            border-radius: var(--border-radius-xl);
+            box-shadow: var(--box-shadow-xl);
+            margin: var(--spacing-8) 0;
+        }
+
+        .contact-info {
+            background: var(--color-white);
+            padding: var(--spacing-6);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: var(--spacing-4);
+            padding: var(--spacing-3);
+            border-radius: var(--border-radius);
+            transition: all var(--transition-normal);
+        }
+
+        .contact-item:hover {
+            background: var(--color-light-gray);
+            transform: translateX(5px);
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--color-gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: var(--spacing-4);
+            color: var(--color-white);
+            font-size: var(--font-size-xl);
+        }
+
+        .footer {
+            background-color: var(--color-dark-blue);
+            color: var(--color-white);
+            padding: var(--spacing-16) 0 var(--spacing-8);
+        }
+
+        .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--spacing-8); margin-bottom: var(--spacing-8); }
+        .footer h3 { color: var(--color-white); margin-bottom: var(--spacing-4); }
+        .footer a { color: rgba(255, 255, 255, 0.8); text-decoration: none; transition: color 0.2s ease; }
+        .footer a:hover { color: var(--color-white); }
+        .footer-bottom { border-top: 1px solid rgba(255, 255, 255, 0.2); padding-top: var(--spacing-4); text-align: center; color: rgba(255, 255, 255, 0.6); }
+
+        .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--spacing-8); }
+        .feature-card {
+            background: var(--color-white);
+            padding: var(--spacing-6);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            text-align: center;
+            transition: all var(--transition-normal);
+        }
+
+        .feature-card:hover { transform: translateY(-4px) scale(1.02); box-shadow: var(--box-shadow-xl); }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--color-gradient-accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--spacing-4);
+            color: var(--color-white);
+            font-size: var(--font-size-xl);
+        }
+
+        /* HubSpot Form Styling */
+        .hubspot-form {
+            margin: var(--spacing-6) 0;
+        }
+
+        /* Custom styling for HubSpot forms when they load */
+        .hs-form {
+            max-width: 100% !important;
+        }
+
+        .hs-form .hs-fieldtype-text input,
+        .hs-form .hs-fieldtype-textarea textarea,
+        .hs-form .hs-fieldtype-select select {
+            width: 100% !important;
+            padding: var(--spacing-3) !important;
+            border: 2px solid var(--color-border) !important;
+            border-radius: var(--border-radius) !important;
+            font-family: var(--font-family) !important;
+            font-size: var(--font-size-base) !important;
+            transition: border-color var(--transition-normal) !important;
+        }
+
+        .hs-form .hs-fieldtype-text input:focus,
+        .hs-form .hs-fieldtype-textarea textarea:focus,
+        .hs-form .hs-fieldtype-select select:focus {
+            border-color: var(--color-primary) !important;
+            outline: none !important;
+            box-shadow: 0 0 0 3px rgba(49, 86, 207, 0.1) !important;
+        }
+
+        .hs-form .hs-button {
+            background: var(--color-gradient-accent) !important;
+            color: var(--color-white) !important;
+            border: none !important;
+            padding: var(--spacing-4) var(--spacing-8) !important;
+            border-radius: var(--border-radius) !important;
+            font-family: var(--font-family) !important;
+            font-size: var(--font-size-base) !important;
+            font-weight: 600 !important;
+            cursor: pointer !important;
+            transition: all var(--transition-normal) !important;
+        }
+
+        .hs-form .hs-button:hover {
+            transform: translateY(-2px) scale(1.02) !important;
+            box-shadow: var(--box-shadow-xl) !important;
+        }
+
+        @media (min-width: 768px) {
+            .grid-2 { grid-template-columns: 1fr 1fr; }
+            .container { padding: 0 var(--spacing-8); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-container">
+                <a href="index.html" class="logo">
+                    <img src="../assets/images/logos/Logo_small_square.svg" alt="Cloud Data Consulting, Inc." style="height: 40px; width: auto;">
+                </a>
+                
+                <ul class="nav-links">
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="index.html#methodology">Methodology</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="text-center">
+                <h1>Ready to Transform Your AI Strategy?</h1>
+                <p class="text-large" style="max-width: 800px; margin: 0 auto;">
+                    Let's discuss how our proven D.A.T.A.S. methodology can turn your AI ambitions into technical reality. Schedule a consultation with our expert team.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="section">
+        <div class="container">
+            <div class="grid grid-2 items-center">
+                <div>
+                    <h2>Schedule Your Consultation</h2>
+                    <p class="text-large">
+                        Ready to join the 13% of companies that are truly AI-ready? Our expert team will assess your current state and create a customized roadmap for AI success.
+                    </p>
+                    
+                    <div class="feature-grid" style="grid-template-columns: 1fr; margin-top: var(--spacing-8);">
+                        <div class="feature-card">
+                            <div class="feature-icon">📞</div>
+                            <h3>Free Initial Consultation</h3>
+                            <p>30-minute discovery call to understand your AI goals and data challenges</p>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <div class="feature-icon">🎯</div>
+                            <h3>Custom Roadmap</h3>
+                            <p>Receive a preliminary assessment and next steps tailored to your business</p>
+                        </div>
+                        
+                        <div class="feature-card">
+                            <div class="feature-icon">⚡</div>
+                            <h3>Quick Response</h3>
+                            <p>We'll respond within 24 hours to schedule your consultation</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="contact-form-container">
+                        <h3 style="text-align: center; margin-bottom: var(--spacing-6);">Get Started Today</h3>
+                        
+                        <!-- HubSpot Form Embed Will Go Here -->
+                        <div id="hubspot-form-contact" class="hubspot-form">
+                            <!-- 
+                            REPLACE THIS COMMENT WITH YOUR HUBSPOT EMBED CODE 
+                            
+                            Steps:
+                            1. Create form in HubSpot
+                            2. Get the embed code (JavaScript snippet)
+                            3. Paste it here replacing this comment
+                            4. Test the form submission
+                            -->
+                            
+                            <!-- Temporary Placeholder Form (Remove when HubSpot is ready) -->
+                            <div style="text-align: center; padding: var(--spacing-8); background: var(--color-light-gray); border-radius: var(--border-radius); border: 2px dashed var(--color-border);">
+                                <h4 style="color: var(--color-primary); margin-bottom: var(--spacing-3);">HubSpot Form Placeholder</h4>
+                                <p style="color: var(--color-text-medium); margin-bottom: var(--spacing-4);">Replace this section with your HubSpot embed code</p>
+                                <div style="font-family: monospace; font-size: 0.9rem; color: var(--color-text-medium);">
+                                    &lt;script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"&gt;&lt;/script&gt;<br>
+                                    &lt;script&gt; hbspt.forms.create({...}); &lt;/script&gt;
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Information -->
+    <section class="section section-light">
+        <div class="container">
+            <div class="text-center">
+                <h2>Get in Touch</h2>
+                <p class="text-large" style="margin-bottom: var(--spacing-12);">Multiple ways to reach our team</p>
+            </div>
+            
+            <div class="grid grid-2">
+                <div class="contact-info">
+                    <h3 style="margin-bottom: var(--spacing-6);">Contact Information</h3>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📧</div>
+                        <div>
+                            <strong>Email</strong><br>
+                            <a href="mailto:info@clouddataconsulting.com" style="color: var(--color-primary); text-decoration: none;">info@clouddataconsulting.com</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">🌐</div>
+                        <div>
+                            <strong>LinkedIn</strong><br>
+                            <span style="color: var(--color-text-medium);">Connect with our team</span>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">⏰</div>
+                        <div>
+                            <strong>Response Time</strong><br>
+                            <span style="color: var(--color-text-medium);">Within 24 hours</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-info">
+                    <h3 style="margin-bottom: var(--spacing-6);">What Happens Next?</h3>
+                    
+                    <div style="margin-bottom: var(--spacing-4);">
+                        <strong style="color: var(--color-primary);">1. Initial Response</strong><br>
+                        <span style="color: var(--color-text-medium);">We'll acknowledge your inquiry within 24 hours</span>
+                    </div>
+                    
+                    <div style="margin-bottom: var(--spacing-4);">
+                        <strong style="color: var(--color-primary);">2. Discovery Call</strong><br>
+                        <span style="color: var(--color-text-medium);">30-minute consultation to understand your needs</span>
+                    </div>
+                    
+                    <div style="margin-bottom: var(--spacing-4);">
+                        <strong style="color: var(--color-primary);">3. Custom Proposal</strong><br>
+                        <span style="color: var(--color-text-medium);">Tailored recommendation and engagement plan</span>
+                    </div>
+                    
+                    <div style="margin-bottom: var(--spacing-4);">
+                        <strong style="color: var(--color-primary);">4. Project Kickoff</strong><br>
+                        <span style="color: var(--color-text-medium);">Begin your AI transformation journey</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <img src="../assets/images/logos/CDC_Logo_clear_1280x304px.png" alt="Cloud Data Consulting, Inc." style="height: 60px; width: auto; margin-bottom: var(--spacing-4); filter: brightness(0) invert(1);">
+                    <p style="color: rgba(255,255,255,0.8);">Transforming AI ambitions into technical reality through expert data strategy.</p>
+                </div>
+                
+                <div>
+                    <h3>Services</h3>
+                    <ul style="list-style: none;">
+                        <li style="margin-bottom: var(--spacing-2);"><a href="ai-readiness-assessment.html">AI Readiness Assessment</a></li>
+                        <li style="margin-bottom: var(--spacing-2);"><a href="ai-ready-platform.html">AI-Ready Platform Implementation</a></li>
+                        <li style="margin-bottom: var(--spacing-2);"><a href="data-modernization.html">Data Warehouse Modernization</a></li>
+                        <li style="margin-bottom: var(--spacing-2);"><a href="strategic-enablement.html">Strategic AI Enablement</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3>Contact</h3>
+                    <p style="color: rgba(255,255,255,0.8); margin-bottom: var(--spacing-2);">Ready to make your data AI-ready?</p>
+                    <p style="color: rgba(255,255,255,0.8); margin-bottom: var(--spacing-2);">📧 info@clouddataconsulting.com</p>
+                    <p style="color: rgba(255,255,255,0.8); margin-bottom: var(--spacing-2);">📞 <a href="https://meetings.hubspot.com/pruss" target="_blank" style="color: rgba(255,255,255,0.9); text-decoration: underline;">Schedule Your Consultation</a></p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Cloud Data Consulting, Inc. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

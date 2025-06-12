@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Readiness Assessment - Cloud Data Consulting, Inc.</title>
+    <meta name="description" content="Discover your AI readiness score in 5 minutes. Our comprehensive assessment evaluates your data architecture, quality, governance, team, technology, and business alignment.">
+    <link rel="icon" type="image/png" href="../assets/images/logos/Favicon_200px.png">
+    <link rel="apple-touch-icon" href="../assets/images/logos/Favicon_400px.jpg">
+    <style>
+        :root {
+            --color-primary: #3156CF;
+            --color-primary-light: #4F6FD8;
+            --color-dark-blue: #002B7F;
+            --color-accent: #F79743;
+            --color-accent-light: #FFA55C;
+            --color-white: #FFFFFF;
+            --color-light-gray: #F5F7FA;
+            --color-text-dark: #1F2430;
+            --color-text-medium: #6B7280;
+            --color-border: #E5E7EB;
+            --color-success: #10B981;
+            --color-warning: #F59E0B;
+            --color-danger: #EF4444;
+            --color-gradient-primary: linear-gradient(135deg, #3156CF 0%, #4F6FD8 100%);
+            --color-gradient-accent: linear-gradient(135deg, #F79743 0%, #FFA55C 100%);
+            --color-gradient-hero: linear-gradient(135deg, #F5F7FA 0%, #FFFFFF 50%, #F0F4FF 100%);
+            
+            --font-family: 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            --font-size-base: 1rem;
+            --font-size-lg: 1.125rem;
+            --font-size-xl: 1.25rem;
+            --font-size-2xl: 1.5rem;
+            --font-size-3xl: 1.875rem;
+            --font-size-4xl: 2.25rem;
+            --font-size-5xl: 3rem;
+            
+            --spacing-2: 0.5rem;
+            --spacing-3: 0.75rem;
+            --spacing-4: 1rem;
+            --spacing-6: 1.5rem;
+            --spacing-8: 2rem;
+            --spacing-12: 3rem;
+            --spacing-16: 4rem;
+            
+            --border-radius: 0.75rem;
+            --border-radius-xl: 1.5rem;
+            --box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --box-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            
+            --transition-normal: 0.3s ease-out;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap');
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            font-family: var(--font-family);
+            font-size: var(--font-size-base);
+            line-height: 1.6;
+            color: var(--color-text-dark);
+            background: var(--color-gradient-hero);
+            min-height: 100vh;
+        }
+
+        .container { max-width: 900px; margin: 0 auto; padding: var(--spacing-4); }
+        .text-center { text-align: center; }
+        .text-large { font-size: var(--font-size-lg); }
+
+        h1 { font-size: var(--font-size-4xl); font-weight: 700; margin-bottom: var(--spacing-6); color: var(--color-dark-blue); }
+        h2 { font-size: var(--font-size-3xl); font-weight: 600; margin-bottom: var(--spacing-4); color: var(--color-dark-blue); }
+        h3 { font-size: var(--font-size-xl); font-weight: 600; margin-bottom: var(--spacing-3); color: var(--color-dark-blue); }
+        p { margin-bottom: var(--spacing-4); color: var(--color-text-medium); }
+
+        /* Assessment Container */
+        .assessment-container {
+            background: var(--color-white);
+            border-radius: var(--border-radius-xl);
+            box-shadow: var(--box-shadow-xl);
+            margin: var(--spacing-8) 0;
+            overflow: hidden;
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            background: var(--color-light-gray);
+            height: 8px;
+            width: 100%;
+        }
+
+        .progress-bar {
+            background: var(--color-gradient-primary);
+            height: 100%;
+            width: 0%;
+            transition: width 0.5s ease;
+        }
+
+        /* Question Sections */
+        .question-section {
+            display: none;
+            padding: var(--spacing-8);
+            animation: slideIn 0.5s ease-out;
+        }
+
+        .question-section.active {
+            display: block;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .question-header {
+            text-align: center;
+            margin-bottom: var(--spacing-8);
+        }
+
+        .dimension-badge {
+            display: inline-block;
+            background: var(--color-gradient-accent);
+            color: var(--color-white);
+            padding: var(--spacing-2) var(--spacing-4);
+            border-radius: var(--border-radius);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: var(--spacing-4);
+        }
+
+        .question-counter {
+            color: var(--color-text-medium);
+            font-size: 0.9rem;
+            margin-bottom: var(--spacing-2);
+        }
+
+        /* Answer Options */
+        .answer-options {
+            display: grid;
+            gap: var(--spacing-3);
+            margin-bottom: var(--spacing-8);
+        }
+
+        .answer-option {
+            background: var(--color-white);
+            border: 2px solid var(--color-border);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-4);
+            cursor: pointer;
+            transition: all var(--transition-normal);
+            display: flex;
+            align-items: flex-start;
+            gap: var(--spacing-3);
+        }
+
+        .answer-option:hover {
+            border-color: var(--color-primary);
+            background: rgba(49, 86, 207, 0.05);
+            transform: translateY(-2px);
+        }
+
+        .answer-option.selected {
+            border-color: var(--color-primary);
+            background: rgba(49, 86, 207, 0.1);
+        }
+
+        .answer-radio {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--color-border);
+            border-radius: 50%;
+            position: relative;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .answer-option.selected .answer-radio {
+            border-color: var(--color-primary);
+            background: var(--color-primary);
+        }
+
+        .answer-option.selected .answer-radio::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 8px;
+            height: 8px;
+            background: var(--color-white);
+            border-radius: 50%;
+        }
+
+        .answer-content {
+            flex: 1;
+        }
+
+        .answer-title {
+            font-weight: 600;
+            color: var(--color-text-dark);
+            margin-bottom: var(--spacing-1);
+        }
+
+        .answer-description {
+            font-size: 0.9rem;
+            color: var(--color-text-medium);
+        }
+
+        /* Navigation Buttons */
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            gap: var(--spacing-4);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--spacing-3) var(--spacing-6);
+            font-size: var(--font-size-base);
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: var(--border-radius);
+            border: 2px solid transparent;
+            transition: all var(--transition-normal);
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        .btn-primary {
+            background: var(--color-gradient-accent);
+            color: var(--color-white);
+            border-color: var(--color-accent);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--box-shadow);
+        }
+
+        .btn-primary:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--color-primary);
+            border-color: var(--color-primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--color-primary);
+            color: var(--color-white);
+        }
+
+        /* Results Section */
+        .results-section {
+            display: none;
+            padding: var(--spacing-8);
+            text-align: center;
+        }
+
+        .results-section.active {
+            display: block;
+        }
+
+        .score-circle {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: conic-gradient(var(--color-success) 0%, var(--color-light-gray) 0%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--spacing-6);
+            position: relative;
+        }
+
+        .score-inner {
+            width: 160px;
+            height: 160px;
+            background: var(--color-white);
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .score-number {
+            font-size: var(--font-size-5xl);
+            font-weight: 900;
+            color: var(--color-primary);
+            line-height: 1;
+        }
+
+        .score-label {
+            font-size: var(--font-size-base);
+            color: var(--color-text-medium);
+            margin-top: var(--spacing-2);
+        }
+
+        .score-description {
+            font-size: var(--font-size-lg);
+            margin-bottom: var(--spacing-8);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Dimension Breakdown */
+        .dimension-breakdown {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-4);
+            margin: var(--spacing-8) 0;
+        }
+
+        .dimension-item {
+            background: var(--color-light-gray);
+            padding: var(--spacing-4);
+            border-radius: var(--border-radius);
+            text-align: left;
+        }
+
+        .dimension-name {
+            font-weight: 600;
+            color: var(--color-dark-blue);
+            margin-bottom: var(--spacing-2);
+        }
+
+        .dimension-score {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-2);
+            margin-bottom: var(--spacing-2);
+        }
+
+        .dimension-bar {
+            flex: 1;
+            height: 8px;
+            background: var(--color-border);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .dimension-fill {
+            height: 100%;
+            background: var(--color-gradient-primary);
+            transition: width 1s ease;
+        }
+
+        .dimension-percentage {
+            font-weight: 600;
+            color: var(--color-primary);
+            min-width: 35px;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: var(--color-gradient-primary);
+            color: var(--color-white);
+            padding: var(--spacing-8);
+            border-radius: var(--border-radius);
+            margin-top: var(--spacing-8);
+            text-align: center;
+        }
+
+        .cta-section h3 {
+            color: var(--color-white);
+            margin-bottom: var(--spacing-4);
+        }
+
+        .cta-section p {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: var(--spacing-6);
+        }
+
+        .btn-white {
+            background: var(--color-white);
+            color: var(--color-primary);
+            border-color: var(--color-white);
+        }
+
+        .btn-white:hover {
+            background: rgba(255, 255, 255, 0.9);
+            transform: translateY(-2px);
+        }
+
+        /* Loading Animation */
+        .loading {
+            display: none;
+            text-align: center;
+            padding: var(--spacing-8);
+        }
+
+        .loading.active {
+            display: block;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid var(--color-light-gray);
+            border-top: 5px solid var(--color-primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto var(--spacing-4);
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .container { padding: var(--spacing-2); }
+            .assessment-container { margin: var(--spacing-4) 0; }
+            .question-section { padding: var(--spacing-4); }
+            h1 { font-size: var(--font-size-3xl); }
+            .score-circle { width: 150px; height: 150px; }
+            .score-inner { width: 120px; height: 120px; }
+            .score-number { font-size: var(--font-size-4xl); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="text-center" style="padding: var(--spacing-8) 0;">
+            <a href="index.html">
+                <img src="../assets/images/logos/Logo_small_square.svg" alt="Cloud Data Consulting, Inc." style="height: 50px; width: auto; margin-bottom: var(--spacing-4);">
+            </a>
+            <h1>AI Readiness Assessment</h1>
+            <p class="text-large">Discover your AI readiness score in 5 minutes with our comprehensive 6-dimension evaluation</p>
+        </div>
+
+        <!-- Assessment Container -->
+        <div class="assessment-container" id="assessmentContainer">
+            <!-- Progress Bar -->
+            <div class="progress-container">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+
+            <!-- Question Sections will be generated by JavaScript -->
+            
+            <!-- Loading Section -->
+            <div class="loading" id="loadingSection">
+                <div class="spinner"></div>
+                <h3>Calculating Your AI Readiness Score...</h3>
+                <p>Analyzing your responses across all 6 dimensions</p>
+            </div>
+
+            <!-- Results Section -->
+            <div class="results-section" id="resultsSection">
+                <h2>Your AI Readiness Score</h2>
+                
+                <div class="score-circle" id="scoreCircle">
+                    <div class="score-inner">
+                        <div class="score-number" id="scoreNumber">0</div>
+                        <div class="score-label">% Ready</div>
+                    </div>
+                </div>
+
+                <div class="score-description" id="scoreDescription">
+                    <!-- Score description will be populated by JavaScript -->
+                </div>
+
+                <h3>Dimension Breakdown</h3>
+                <div class="dimension-breakdown" id="dimensionBreakdown">
+                    <!-- Dimension scores will be populated by JavaScript -->
+                </div>
+
+                <div class="cta-section">
+                    <h3>Ready to Improve Your AI Readiness?</h3>
+                    <p>Get a personalized roadmap and detailed recommendations from our expert team.</p>
+                    <div style="display: flex; gap: var(--spacing-4); justify-content: center; flex-wrap: wrap;">
+                        <a href="https://meetings.hubspot.com/pruss" target="_blank" class="btn btn-white">Schedule Free Consultation</a>
+                        <a href="contact.html" class="btn btn-white" style="background: transparent; border-color: white; color: white;">Get Detailed Report</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Return to Website -->
+        <div class="text-center" style="padding: var(--spacing-4) 0;">
+            <a href="index.html" style="color: var(--color-primary); text-decoration: none; font-size: var(--font-size-base);">← Return to Cloud Data Consulting</a>
+        </div>
+    </div>
+
+    <script>
+        // AI Readiness Assessment Quiz Engine
+        class AIReadinessAssessment {
+            constructor() {
+                this.currentQuestion = 0;
+                this.answers = {};
+                this.dimensions = {
+                    architecture: { name: 'Data Architecture', score: 0, maxScore: 0 },
+                    quality: { name: 'Data Quality', score: 0, maxScore: 0 },
+                    governance: { name: 'Data Governance', score: 0, maxScore: 0 },
+                    team: { name: 'Team Capabilities', score: 0, maxScore: 0 },
+                    technology: { name: 'Technology Stack', score: 0, maxScore: 0 },
+                    business: { name: 'Business Alignment', score: 0, maxScore: 0 }
+                };
+                
+                this.questions = this.generateQuestions();
+                this.init();
+            }
+
+            generateQuestions() {
+                return [
+                    // Data Architecture Questions
+                    {
+                        id: 'arch_1',
+                        dimension: 'architecture',
+                        question: 'How would you describe your current data infrastructure?',
+                        options: [
+                            { text: 'Mostly on-premises legacy systems', description: 'Traditional databases and file systems', score: 1 },
+                            { text: 'Hybrid cloud with some modernization', description: 'Mix of on-premises and cloud solutions', score: 3 },
+                            { text: 'Cloud-native with modern data stack', description: 'Built on modern cloud platforms', score: 5 },
+                            { text: 'Cutting-edge, AI-optimized architecture', description: 'Purpose-built for AI/ML workloads', score: 5 }
+                        ]
+                    },
+                    {
+                        id: 'arch_2',
+                        dimension: 'architecture',
+                        question: 'How easily can your systems scale to handle increased data volumes?',
+                        options: [
+                            { text: 'Very difficult, requires significant planning', description: 'Manual processes, hardware limitations', score: 1 },
+                            { text: 'Moderately difficult, some manual intervention', description: 'Some automation, but still complex', score: 2 },
+                            { text: 'Relatively easy with some configuration', description: 'Good automation with minor adjustments', score: 4 },
+                            { text: 'Automatic scaling with no intervention', description: 'Fully elastic, cloud-native scaling', score: 5 }
+                        ]
+                    },
+                    {
+                        id: 'arch_3',
+                        dimension: 'architecture',
+                        question: 'What best describes your data integration capabilities?',
+                        options: [
+                            { text: 'Manual processes, batch updates', description: 'Mostly manual, time-consuming processes', score: 1 },
+                            { text: 'Some automation, still largely batch-based', description: 'Basic ETL tools, scheduled updates', score: 2 },
+                            { text: 'Good automation with near real-time capabilities', description: 'Modern ETL/ELT with streaming options', score: 4 },
+                            { text: 'Real-time streaming and event-driven architecture', description: 'Advanced streaming, event processing', score: 5 }
+                        ]
+                    },
+
+                    // Data Quality Questions
+                    {
+                        id: 'quality_1',
+                        dimension: 'quality',
+                        question: 'How would you rate the overall quality of your data?',
+                        options: [
+                            { text: 'Poor - significant quality issues', description: 'Frequent errors, missing data, inconsistencies', score: 1 },
+                            { text: 'Fair - some quality issues', description: 'Occasional errors, manageable problems', score: 2 },
+                            { text: 'Good - minor quality issues', description: 'Generally reliable with few issues', score: 4 },
+                            { text: 'Excellent - high quality, well-maintained', description: 'Consistent, accurate, and complete', score: 5 }
+                        ]
+                    },
+                    {
+                        id: 'quality_2',
+                        dimension: 'quality',
+                        question: 'How do you currently monitor and validate data quality?',
+                        options: [
+                            { text: 'No formal process', description: 'Issues discovered reactively', score: 1 },
+                            { text: 'Manual spot checks', description: 'Occasional manual validation', score: 2 },
+                            { text: 'Automated monitoring for critical data', description: 'Some automation, key metrics tracked', score: 4 },
+                            { text: 'Comprehensive automated quality framework', description: 'End-to-end quality monitoring and alerts', score: 5 }
+                        ]
+                    },
+                    {
+                        id: 'quality_3',
+                        dimension: 'quality',
+                        question: 'How consistent is data across your different systems?',
+                        options: [
+                            { text: 'Very inconsistent, major discrepancies', description: 'Different values for same entities', score: 1 },
+                            { text: 'Somewhat inconsistent, manageable differences', description: 'Some discrepancies, known issues', score: 2 },
+                            { text: 'Mostly consistent with minor variations', description: 'Generally aligned, few exceptions', score: 4 },
+                            { text: 'Highly consistent across all systems', description: 'Single source of truth, synchronized', score: 5 }
+                        ]
+                    },
+
+                    // Data Governance Questions
+                    {
+                        id: 'gov_1',
+                        dimension: 'governance',
+                        question: 'What level of data governance policies do you have in place?',
+                        options: [
+                            { text: 'No formal governance policies', description: 'Ad-hoc approach, no documentation', score: 1 },
+                            { text: 'Basic policies, limited enforcement', description: 'Some documentation, inconsistent application', score: 2 },
+                            { text: 'Formal policies with regular enforcement', description: 'Documented processes, regular reviews', score: 4 },
+                            { text: 'Comprehensive governance framework', description: 'End-to-end policies, automated enforcement', score: 5 }
+                        ]
+                    },
+                    {
+                        id: 'gov_2',
+                        dimension: 'governance',
+                        question: 'How do you handle data security and privacy compliance?',
+                        options: [
+                            { text: 'Basic security, limited compliance focus', description: 'Minimal controls, reactive approach', score: 1 },
+                            { text: 'Standard security, some compliance measures', description: 'Basic controls, some compliance work', score: 2 },
+                            { text: 'Strong security, good compliance program', description: 'Robust controls, regular compliance reviews', score: 4 },
+                            { text: 'Enterprise-grade security and compliance', description: 'Advanced controls, proactive compliance', score: 5 }
+                        ]
+                    },
+                    {
+                        id: 'gov_3',
+                        dimension: 'governance',
+                        question: 'Do you have clear data ownership and stewardship roles?',
+                        options: [
+                            { text: 'No defined ownership', description: 'Unclear responsibilities, no accountability', score: 1 },
+                            { text: 'Informal ownership, limited accountability', description: 'Some understanding, not formalized', score: 2 },
+                            { text: 'Defined ownership with clear accountability', description: 'Documented roles, regular communication', score: 4 },
+                            { text: 'Comprehensive stewardship program', description: 'Formal program, active stewards, metrics', score: 5 }
+                        ]
+                    },
+
+                    // Team Capabilities Questions
+                    {
+                        id: 'team_1',
+                        dimension: 'team',
+                        question: 'What data and AI skills exist within your team?',
+                        options: [
+                            { text: 'Limited data skills, no AI expertise', description: 'Basic reporting, no advanced capabilities', score: 1 },
+                            { text: 'Some data analysis, basic AI knowledge', description: 'Excel/BI users, AI awareness only', score: 2 },
+                            { text: 'Strong data team, some AI/ML experience', description: 'Data engineers, some ML practitioners', score: 4 },
+                            { text: 'Expert data and AI team', description: 'Data scientists, ML engineers, AI specialists', score: 5 }
+                        ]
+                    },
+                    {
+                        id: 'team_2',
+                        dimension: 'team',
+                        question: 'How would you describe your organization\'s data culture?',
+                        options: [
+                            { text: 'Data is not prioritized', description: 'Decisions based on intuition, minimal data use', score: 1 },
+                            { text: 'Some data awareness, limited adoption', description: 'Pockets of data use, not widespread', score: 2 },
+                            { text: 'Data-informed decisions, growing adoption', description: 'Regular data use, increasing investment', score: 4 },
+                            { text: 'Data-driven culture, organization-wide', description: 'Data central to all decisions, embedded in processes', score: 5 }
+                        ]
+                    },
+                    {
+                        id: 'team_3',
+                        dimension: 'team',
+                        question: 'What is your team\'s capacity for AI/ML projects?',
+                        options: [
+                            { text: 'No capacity, would need external help', description: 'No internal resources or knowledge', score: 1 },
+                            { text: 'Limited capacity, mostly external support', description: 'Minimal internal resources, heavy reliance on vendors', score: 2 },
+                            { text: 'Moderate capacity, some external support', description: 'Growing internal capabilities, selective outsourcing', score: 4 },
+                            { text: 'Strong internal capacity, minimal external help', description: 'Self-sufficient team, occasional consulting', score: 5 }
+                        ]
+                    },
+
+                    // Technology Stack Questions
+                    {
+                        id: 'tech_1',
+                        dimension: 'technology',
+                        question: 'How modern are your data processing and analytics tools?',
+                        options: [
+                            { text: 'Legacy tools, limited capabilities', description: 'Old databases, basic reporting tools', score: 1 },
+                            { text: 'Mix of legacy and modern tools', description: 'Some modern tools alongside legacy systems', score: 2 },
+                            { text: 'Mostly modern tools with good capabilities', description: 'Contemporary platforms, good functionality', score: 4 },
+                            { text: 'Cutting-edge tools optimized for AI/ML', description: 'Latest platforms, AI/ML optimized stack', score: 5 }
+                        ]
+                    },
+                    {
+                        id: 'tech_2',
+                        dimension: 'technology',
+                        question: 'What AI/ML tools and platforms do you currently use?',
+                        options: [
+                            { text: 'No AI/ML tools', description: 'No current AI/ML capabilities', score: 1 },
+                            { text: 'Basic tools, limited AI/ML capability', description: 'Simple tools, basic analytics only', score: 2 },
+                            { text: 'Good AI/ML platforms, some advanced features', description: 'Established platforms, growing capabilities', score: 4 },
+                            { text: 'Enterprise AI/ML platform with full MLOps', description: 'Complete platform, production ML pipelines', score: 5 }
+                        ]
+                    },
+                    {
+                        id: 'tech_3',
+                        dimension: 'technology',
+                        question: 'How well integrated are your data and analytics tools?',
+                        options: [
+                            { text: 'Poorly integrated, many silos', description: 'Disconnected tools, manual processes', score: 1 },
+                            { text: 'Some integration, but still fragmented', description: 'Basic connections, some automation', score: 2 },
+                            { text: 'Well integrated with good data flow', description: 'Good connectivity, automated workflows', score: 4 },
+                            { text: 'Seamlessly integrated, unified platform', description: 'Single platform, end-to-end automation', score: 5 }
+                        ]
+                    },
+
+                    // Business Alignment Questions
+                    {
+                        id: 'biz_1',
+                        dimension: 'business',
+                        question: 'How well-defined are your AI/ML use cases and business objectives?',
+                        options: [
+                            { text: 'No clear use cases or objectives', description: 'General interest, no specific goals', score: 1 },
+                            { text: 'Vague ideas, limited business alignment', description: 'Some concepts, unclear business value', score: 2 },
+                            { text: 'Clear use cases with business value identified', description: 'Defined opportunities, quantified benefits', score: 4 },
+                            { text: 'Strategic roadmap with prioritized initiatives', description: 'Comprehensive strategy, clear priorities', score: 5 }
+                        ]
+                    },
+                    {
+                        id: 'biz_2',
+                        dimension: 'business',
+                        question: 'What level of executive support exists for AI initiatives?',
+                        options: [
+                            { text: 'No executive support or awareness', description: 'Not on leadership radar', score: 1 },
+                            { text: 'Limited support, budget constraints', description: 'Aware but not prioritized', score: 2 },
+                            { text: 'Good support with allocated resources', description: 'Supportive leadership, adequate budget', score: 4 },
+                            { text: 'Strong champion with significant investment', description: 'Executive sponsor, major budget allocation', score: 5 }
+                        ]
+                    },
+                    {
+                        id: 'biz_3',
+                        dimension: 'business',
+                        question: 'How do you measure success for data and AI initiatives?',
+                        options: [
+                            { text: 'No defined success metrics', description: 'No measurement framework', score: 1 },
+                            { text: 'Basic metrics, limited tracking', description: 'Some KPIs, inconsistent measurement', score: 2 },
+                            { text: 'Clear metrics with regular monitoring', description: 'Defined KPIs, regular reporting', score: 4 },
+                            { text: 'Comprehensive measurement framework', description: 'Advanced metrics, continuous optimization', score: 5 }
+                        ]
+                    }
+                ];
+            }
+
+            init() {
+                this.renderQuestion();
+                this.updateProgress();
+            }
+
+            renderQuestion() {
+                const container = document.getElementById('assessmentContainer');
+                const question = this.questions[this.currentQuestion];
+                
+                // Clear existing question sections
+                const existingSections = container.querySelectorAll('.question-section');
+                existingSections.forEach(section => section.remove());
+
+                const questionSection = document.createElement('div');
+                questionSection.className = 'question-section active';
+                questionSection.innerHTML = `
+                    <div class="question-header">
+                        <div class="dimension-badge">${this.dimensions[question.dimension].name}</div>
+                        <div class="question-counter">Question ${this.currentQuestion + 1} of ${this.questions.length}</div>
+                        <h3>${question.question}</h3>
+                    </div>
+                    
+                    <div class="answer-options">
+                        ${question.options.map((option, index) => `
+                            <div class="answer-option" data-score="${option.score}" data-option="${index}">
+                                <div class="answer-radio"></div>
+                                <div class="answer-content">
+                                    <div class="answer-title">${option.text}</div>
+                                    <div class="answer-description">${option.description}</div>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                    
+                    <div class="nav-buttons">
+                        <button class="btn btn-secondary" id="prevBtn" ${this.currentQuestion === 0 ? 'style="visibility: hidden;"' : ''}>
+                            Previous
+                        </button>
+                        <button class="btn btn-primary" id="nextBtn" disabled>
+                            ${this.currentQuestion === this.questions.length - 1 ? 'Calculate Score' : 'Next'}
+                        </button>
+                    </div>
+                `;
+
+                // Insert before progress bar
+                const progressContainer = container.querySelector('.progress-container');
+                container.insertBefore(questionSection, progressContainer.nextSibling);
+
+                // Add event listeners
+                this.addEventListeners();
+            }
+
+            addEventListeners() {
+                const options = document.querySelectorAll('.answer-option');
+                const nextBtn = document.getElementById('nextBtn');
+                const prevBtn = document.getElementById('prevBtn');
+
+                options.forEach(option => {
+                    option.addEventListener('click', () => {
+                        // Remove previous selection
+                        options.forEach(opt => opt.classList.remove('selected'));
+                        // Add selection to clicked option
+                        option.classList.add('selected');
+                        
+                        // Store answer
+                        const questionId = this.questions[this.currentQuestion].id;
+                        const score = parseInt(option.dataset.score);
+                        this.answers[questionId] = score;
+                        
+                        // Enable next button
+                        nextBtn.disabled = false;
+                    });
+                });
+
+                nextBtn.addEventListener('click', () => {
+                    if (this.currentQuestion < this.questions.length - 1) {
+                        this.currentQuestion++;
+                        this.renderQuestion();
+                        this.updateProgress();
+                    } else {
+                        this.calculateResults();
+                    }
+                });
+
+                prevBtn.addEventListener('click', () => {
+                    if (this.currentQuestion > 0) {
+                        this.currentQuestion--;
+                        this.renderQuestion();
+                        this.updateProgress();
+                        
+                        // Restore previous answer if exists
+                        const questionId = this.questions[this.currentQuestion].id;
+                        if (this.answers[questionId]) {
+                            const options = document.querySelectorAll('.answer-option');
+                            const selectedOption = Array.from(options).find(opt => 
+                                parseInt(opt.dataset.score) === this.answers[questionId]
+                            );
+                            if (selectedOption) {
+                                selectedOption.classList.add('selected');
+                                document.getElementById('nextBtn').disabled = false;
+                            }
+                        }
+                    }
+                });
+            }
+
+            updateProgress() {
+                const progress = ((this.currentQuestion + 1) / this.questions.length) * 100;
+                document.getElementById('progressBar').style.width = `${progress}%`;
+            }
+
+            calculateResults() {
+                // Show loading
+                document.querySelector('.question-section.active').style.display = 'none';
+                document.getElementById('loadingSection').classList.add('active');
+
+                // Calculate scores by dimension
+                this.questions.forEach(question => {
+                    const answer = this.answers[question.id];
+                    if (answer) {
+                        this.dimensions[question.dimension].score += answer;
+                        this.dimensions[question.dimension].maxScore += 5; // Max score per question
+                    }
+                });
+
+                // Calculate overall score
+                let totalScore = 0;
+                let totalMaxScore = 0;
+                Object.values(this.dimensions).forEach(dim => {
+                    totalScore += dim.score;
+                    totalMaxScore += dim.maxScore;
+                });
+
+                const overallScore = Math.round((totalScore / totalMaxScore) * 100);
+
+                // Simulate loading time
+                setTimeout(() => {
+                    this.showResults(overallScore);
+                }, 2000);
+            }
+
+            showResults(score) {
+                document.getElementById('loadingSection').classList.remove('active');
+                document.getElementById('resultsSection').classList.add('active');
+
+                // Animate score
+                this.animateScore(score);
+                
+                // Show score description
+                this.showScoreDescription(score);
+                
+                // Show dimension breakdown
+                this.showDimensionBreakdown();
+            }
+
+            animateScore(targetScore) {
+                const scoreElement = document.getElementById('scoreNumber');
+                const circleElement = document.getElementById('scoreCircle');
+                
+                let currentScore = 0;
+                const increment = targetScore / 50; // 50 steps for smooth animation
+                
+                const animate = () => {
+                    currentScore += increment;
+                    if (currentScore < targetScore) {
+                        scoreElement.textContent = Math.round(currentScore);
+                        requestAnimationFrame(animate);
+                    } else {
+                        scoreElement.textContent = targetScore;
+                    }
+                };
+
+                // Update circle color based on score
+                let color = '--color-danger';
+                if (targetScore >= 70) color = '--color-success';
+                else if (targetScore >= 40) color = '--color-warning';
+
+                const colorValue = getComputedStyle(document.documentElement).getPropertyValue(color);
+                circleElement.style.background = `conic-gradient(${colorValue} ${targetScore}%, var(--color-light-gray) ${targetScore}%)`;
+
+                animate();
+            }
+
+            showScoreDescription(score) {
+                const descriptions = {
+                    high: "Excellent! Your organization is well-positioned for AI success. You have strong foundations across most dimensions.",
+                    medium: "Good progress! You have solid foundations in place but there are key areas that need attention before scaling AI initiatives.",
+                    low: "Your AI journey is just beginning. Significant foundational work is needed before implementing AI initiatives."
+                };
+
+                let level = 'low';
+                if (score >= 70) level = 'high';
+                else if (score >= 40) level = 'medium';
+
+                document.getElementById('scoreDescription').textContent = descriptions[level];
+            }
+
+            showDimensionBreakdown() {
+                const container = document.getElementById('dimensionBreakdown');
+                container.innerHTML = '';
+
+                Object.entries(this.dimensions).forEach(([key, dimension]) => {
+                    const percentage = Math.round((dimension.score / dimension.maxScore) * 100);
+                    
+                    const dimensionElement = document.createElement('div');
+                    dimensionElement.className = 'dimension-item';
+                    dimensionElement.innerHTML = `
+                        <div class="dimension-name">${dimension.name}</div>
+                        <div class="dimension-score">
+                            <div class="dimension-bar">
+                                <div class="dimension-fill" style="width: ${percentage}%"></div>
+                            </div>
+                            <div class="dimension-percentage">${percentage}%</div>
+                        </div>
+                    `;
+                    
+                    container.appendChild(dimensionElement);
+                });
+            }
+        }
+
+        // Initialize assessment when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            new AIReadinessAssessment();
+        });
+    </script>
+</body>
+</html>

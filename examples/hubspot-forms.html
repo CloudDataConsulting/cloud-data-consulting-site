@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HubSpot Form Integration Examples</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        
+        h1, h2 {
+            color: #2c3e50;
+        }
+        
+        .form-container {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+            margin: 20px 0;
+        }
+        
+        .form-title {
+            color: #1a365d;
+            font-size: 24px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .form-description {
+            color: #4a5568;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        
+        /* Custom styling for HubSpot forms */
+        .hs-form {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .hs-form-field {
+            margin-bottom: 20px;
+        }
+        
+        .hs-form-field label {
+            color: #2d3748;
+            font-weight: 600;
+            margin-bottom: 5px;
+            display: block;
+        }
+        
+        .hs-input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e2e8f0;
+            border-radius: 6px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+        
+        .hs-input:focus {
+            outline: none;
+            border-color: #3182ce;
+            box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.1);
+        }
+        
+        .hs-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+            width: 100%;
+        }
+        
+        .hs-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .hs-error-msgs {
+            color: #e53e3e;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+        
+        /* Custom CDC Brand Colors */
+        .cdc-primary {
+            background: linear-gradient(135deg, #1a365d 0%, #2d3748 100%);
+        }
+        
+        .cdc-secondary {
+            background: linear-gradient(135deg, #3182ce 0%, #2b6cb0 100%);
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            
+            .form-container {
+                padding: 20px;
+            }
+        }
+        
+        .code-block {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            padding: 20px;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+        }
+        
+        .integration-note {
+            background: #bee3f8;
+            border-left: 4px solid #3182ce;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 6px 6px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>HubSpot Form Integration Examples</h1>
+        <p>This page demonstrates different ways to integrate HubSpot forms into your Cloud Data Consulting website.</p>
+    </div>
+
+    <!-- Webinar Registration Form -->
+    <div class="container">
+        <div class="form-container">
+            <h2 class="form-title">AI & Data Strategy Webinar Registration</h2>
+            <p class="form-description">Join our upcoming webinar to learn how AI can transform your data strategy.</p>
+            
+            <!-- Replace FORM_ID with your actual HubSpot form ID -->
+            <div id="hubspot-webinar-form"></div>
+            
+            <div class="integration-note">
+                <strong>Integration Note:</strong> Replace the form ID in the script below with your actual HubSpot form ID from your webinar registration form.
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Form -->
+    <div class="container">
+        <div class="form-container">
+            <h2 class="form-title">Get Your Free Data Assessment</h2>
+            <p class="form-description">Discover opportunities to optimize your data infrastructure and reduce costs.</p>
+            
+            <!-- Replace FORM_ID with your actual HubSpot form ID -->
+            <div id="hubspot-contact-form"></div>
+        </div>
+    </div>
+
+    <!-- Newsletter Signup -->
+    <div class="container">
+        <div class="form-container">
+            <h2 class="form-title">Data Insights Newsletter</h2>
+            <p class="form-description">Get weekly insights on data strategy, AI trends, and cost optimization tips.</p>
+            
+            <!-- Replace FORM_ID with your actual HubSpot form ID -->
+            <div id="hubspot-newsletter-form"></div>
+        </div>
+    </div>
+
+    <!-- Implementation Code Examples -->
+    <div class="container">
+        <h2>Implementation Guide</h2>
+        
+        <h3>1. Basic HubSpot Form Embed</h3>
+        <div class="code-block">
+&lt;script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+  hbspt.forms.create({
+    region: "na1",
+    portalId: "YOUR_PORTAL_ID",
+    formId: "YOUR_FORM_ID",
+    target: '#hubspot-form-container'
+  });
+&lt;/script&gt;
+        </div>
+
+        <h3>2. Form with Custom Styling and Callbacks</h3>
+        <div class="code-block">
+&lt;script&gt;
+  hbspt.forms.create({
+    region: "na1",
+    portalId: "YOUR_PORTAL_ID",
+    formId: "YOUR_FORM_ID",
+    target: '#hubspot-form-container',
+    css: '',
+    onFormReady: function($form) {
+      // Form is ready
+      console.log('Form ready');
+    },
+    onFormSubmit: function($form) {
+      // Form submitted
+      console.log('Form submitted');
+      // Track with Google Analytics
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'form_submit', {
+          'event_category': 'engagement',
+          'event_label': 'webinar_registration'
+        });
+      }
+    },
+    onFormSubmitted: function($form) {
+      // Form submission successful
+      console.log('Form submission successful');
+      // Redirect or show thank you message
+      setTimeout(function() {
+        window.location.href = '/thank-you';
+      }, 1000);
+    }
+  });
+&lt;/script&gt;
+        </div>
+
+        <h3>3. Getting Your HubSpot Form Details</h3>
+        <div class="integration-note">
+            <strong>To find your form details:</strong>
+            <ol>
+                <li>Go to HubSpot → Marketing → Lead Capture → Forms</li>
+                <li>Click on your form</li>
+                <li>Click "Share" or "Embed"</li>
+                <li>Copy the embed code - it contains your portal ID and form ID</li>
+                <li>Your portal ID is your HubSpot account ID</li>
+            </ol>
+        </div>
+
+        <h3>4. Advanced: Form with Pre-filled Fields</h3>
+        <div class="code-block">
+&lt;script&gt;
+  // Pre-fill form based on URL parameters or user data
+  hbspt.forms.create({
+    region: "na1",
+    portalId: "YOUR_PORTAL_ID",
+    formId: "YOUR_FORM_ID",
+    target: '#hubspot-form-container',
+    onFormReady: function($form) {
+      // Pre-fill email if available
+      const urlParams = new URLSearchParams(window.location.search);
+      const email = urlParams.get('email');
+      if (email) {
+        $form.find('input[name="email"]').val(email);
+      }
+    }
+  });
+&lt;/script&gt;
+        </div>
+    </div>
+
+    <!-- HubSpot Form Scripts -->
+    <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
+    <script>
+        // Webinar Registration Form
+        // Replace with your actual portal ID and form ID
+        hbspt.forms.create({
+            region: "na1",
+            portalId: "YOUR_PORTAL_ID", // Replace with your HubSpot portal ID
+            formId: "YOUR_WEBINAR_FORM_ID", // Replace with your webinar form ID
+            target: '#hubspot-webinar-form',
+            css: '', // We're using custom CSS above
+            onFormSubmitted: function($form) {
+                // Track conversion
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'conversion', {
+                        'event_category': 'webinar',
+                        'event_label': 'registration'
+                    });
+                }
+                
+                // Show success message or redirect
+                alert('Thank you for registering! You will receive a confirmation email shortly.');
+            }
+        });
+
+        // Contact Form
+        hbspt.forms.create({
+            region: "na1",
+            portalId: "YOUR_PORTAL_ID", // Replace with your HubSpot portal ID
+            formId: "YOUR_CONTACT_FORM_ID", // Replace with your contact form ID
+            target: '#hubspot-contact-form',
+            onFormSubmitted: function($form) {
+                // Track conversion
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'conversion', {
+                        'event_category': 'lead',
+                        'event_label': 'data_assessment_request'
+                    });
+                }
+                
+                // Redirect to thank you page
+                setTimeout(function() {
+                    window.location.href = '/thank-you';
+                }, 1000);
+            }
+        });
+
+        // Newsletter Form
+        hbspt.forms.create({
+            region: "na1",
+            portalId: "YOUR_PORTAL_ID", // Replace with your HubSpot portal ID
+            formId: "YOUR_NEWSLETTER_FORM_ID", // Replace with your newsletter form ID
+            target: '#hubspot-newsletter-form',
+            onFormSubmitted: function($form) {
+                // Track subscription
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'conversion', {
+                        'event_category': 'newsletter',
+                        'event_label': 'subscription'
+                    });
+                }
+                
+                alert('Thank you for subscribing to our newsletter!');
+            }
+        });
+    </script>
+</body>
+</html>

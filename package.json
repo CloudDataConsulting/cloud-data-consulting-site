@@ -1,0 +1,28 @@
+{
+  "name": "cloud-data-consulting-site",
+  "version": "1.0.0",
+  "description": "Cloud Data Consulting website with link testing capabilities",
+  "main": "test-links.js",
+  "scripts": {
+    "test": "node test-links-simple.js",
+    "test:verbose": "node test-links-simple.js --verbose",
+    "test:deep": "node test-links-simple.js --verbose --depth=3",
+    "test:quick": "node test-links-simple.js --depth=1",
+    "serve": "python3 -m http.server 8080 --directory src",
+    "serve:bg": "python3 -m http.server 8080 --directory src > /dev/null 2>&1 &",
+    "test:advanced": "node test-links.js --verbose",
+    "check": "node test-links-simple.js && echo '✅ All links verified!'"
+  },
+  "dependencies": {
+    "jsdom": "^23.0.0"
+  },
+  "devDependencies": {},
+  "keywords": [
+    "website",
+    "testing",
+    "links",
+    "crawler"
+  ],
+  "author": "Cloud Data Consulting",
+  "license": "MIT"
+}

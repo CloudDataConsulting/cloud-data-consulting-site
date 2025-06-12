@@ -1,0 +1,5 @@
+environment  = "production"
+domain_name  = "clouddataconsulting.com"
+aws_region   = "us-east-1"
+aws_profile  = "cdc-prd"
+project_name = "cdc"

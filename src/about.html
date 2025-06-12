@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Cloud Data Consulting, Inc.</title>
+    <meta name="description" content="Meet the expert team behind Cloud Data Consulting. 125+ years combined experience transforming AI ambitions into technical reality through expert data strategy.">
+    <link rel="icon" type="image/png" href="../assets/images/logos/Favicon_200px.png">
+    <link rel="apple-touch-icon" href="../assets/images/logos/Favicon_400px.jpg">
+    <style>
+        /* Include main styles inline */
+        :root {
+            --color-primary: #3156CF;
+            --color-primary-light: #4F6FD8;
+            --color-dark-blue: #002B7F;
+            --color-accent: #F79743;
+            --color-accent-light: #FFA55C;
+            --color-white: #FFFFFF;
+            --color-light-gray: #F5F7FA;
+            --color-text-dark: #1F2430;
+            --color-text-medium: #6B7280;
+            --color-border: #E5E7EB;
+            --color-gradient-primary: linear-gradient(135deg, #3156CF 0%, #4F6FD8 100%);
+            --color-gradient-accent: linear-gradient(135deg, #F79743 0%, #FFA55C 100%);
+            --color-gradient-hero: linear-gradient(135deg, #F5F7FA 0%, #FFFFFF 50%, #F0F4FF 100%);
+            
+            --font-family: 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            --font-size-base: 1rem;
+            --font-size-lg: 1.125rem;
+            --font-size-xl: 1.25rem;
+            --font-size-2xl: 1.5rem;
+            --font-size-3xl: 1.875rem;
+            --font-size-4xl: 2.25rem;
+            --font-size-5xl: 3rem;
+            
+            --spacing-2: 0.5rem;
+            --spacing-3: 0.75rem;
+            --spacing-4: 1rem;
+            --spacing-6: 1.5rem;
+            --spacing-8: 2rem;
+            --spacing-12: 3rem;
+            --spacing-16: 4rem;
+            
+            --border-radius: 0.75rem;
+            --border-radius-xl: 1.5rem;
+            --box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --box-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            
+            --transition-normal: 0.3s ease-out;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap');
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            font-family: var(--font-family);
+            font-size: var(--font-size-base);
+            line-height: 1.6;
+            color: var(--color-text-dark);
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 var(--spacing-4); }
+        .section { padding: var(--spacing-16) 0; }
+        .section-light { background-color: var(--color-light-gray); }
+        .grid { display: grid; gap: var(--spacing-8); }
+        .grid-2 { grid-template-columns: 1fr; }
+        .items-center { align-items: center; }
+        .text-center { text-align: center; }
+        .text-large { font-size: var(--font-size-lg); }
+        .text-primary { color: var(--color-primary); }
+
+        h1 { font-size: var(--font-size-4xl); font-weight: 700; line-height: 1.2; margin-bottom: var(--spacing-6); color: var(--color-dark-blue); }
+        h2 { font-size: var(--font-size-3xl); font-weight: 600; line-height: 1.3; margin-bottom: var(--spacing-4); color: var(--color-dark-blue); }
+        h3 { font-size: var(--font-size-xl); font-weight: 600; margin-bottom: var(--spacing-3); color: var(--color-dark-blue); }
+        p { margin-bottom: var(--spacing-4); color: var(--color-text-medium); }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--spacing-3) var(--spacing-6);
+            font-size: var(--font-size-base);
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: var(--border-radius);
+            border: 2px solid transparent;
+            transition: all var(--transition-normal);
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        .btn-primary {
+            background: var(--color-gradient-accent);
+            color: var(--color-white);
+            border-color: var(--color-accent);
+            box-shadow: var(--box-shadow);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: var(--box-shadow-xl);
+        }
+
+        .btn-large { padding: var(--spacing-4) var(--spacing-8); font-size: var(--font-size-lg); }
+
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding: var(--spacing-4) 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container { display: flex; align-items: center; justify-content: space-between; }
+        .logo { font-size: var(--font-size-xl); font-weight: 700; color: var(--color-dark-blue); text-decoration: none; }
+        .nav-links { display: flex; list-style: none; gap: var(--spacing-8); }
+        .nav-links a { text-decoration: none; color: var(--color-text-dark); font-weight: 500; transition: color 0.2s ease; }
+        .nav-links a:hover { color: var(--color-primary); }
+
+        .hero {
+            padding: var(--spacing-16) 0;
+            background: var(--color-gradient-hero);
+        }
+
+        .hero-cta { display: flex; flex-wrap: wrap; gap: var(--spacing-4); margin-bottom: var(--spacing-8); }
+
+        .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--spacing-8); }
+        .feature-card {
+            background: var(--color-white);
+            padding: var(--spacing-6);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            text-align: center;
+            transition: all var(--transition-normal);
+        }
+
+        .feature-card:hover { transform: translateY(-4px) scale(1.02); box-shadow: var(--box-shadow-xl); }
+
+        /* Team Member Cards */
+        .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--spacing-8); }
+        .team-card {
+            background: var(--color-white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+            transition: all var(--transition-normal);
+            text-align: center;
+        }
+
+        .team-card:hover { transform: translateY(-4px); box-shadow: var(--box-shadow-xl); }
+
+        .team-photo {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            object-position: center top;
+        }
+
+        .team-info {
+            padding: var(--spacing-6);
+        }
+
+        .team-name {
+            font-size: var(--font-size-xl);
+            font-weight: 700;
+            color: var(--color-dark-blue);
+            margin-bottom: var(--spacing-2);
+        }
+
+        .team-role {
+            font-size: var(--font-size-base);
+            color: var(--color-primary);
+            font-weight: 600;
+            margin-bottom: var(--spacing-3);
+        }
+
+        .team-bio {
+            font-size: var(--font-size-base);
+            color: var(--color-text-medium);
+            line-height: 1.6;
+        }
+
+        /* Stats Section */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-8);
+            text-align: center;
+        }
+
+        .stat {
+            padding: var(--spacing-4);
+        }
+
+        .stat-number {
+            font-size: var(--font-size-4xl);
+            font-weight: 700;
+            color: var(--color-primary);
+            display: block;
+        }
+
+        .stat-label {
+            color: var(--color-text-medium);
+            font-size: var(--font-size-base);
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, var(--color-dark-blue) 0%, var(--color-primary) 100%);
+            color: var(--color-white);
+            text-align: center;
+            padding: var(--spacing-16) 0;
+        }
+
+        .cta-section h2 { color: var(--color-white); margin-bottom: var(--spacing-4); }
+        .cta-section p { color: rgba(255, 255, 255, 0.9); font-size: var(--font-size-lg); margin-bottom: var(--spacing-8); }
+
+        .footer {
+            background-color: var(--color-dark-blue);
+            color: var(--color-white);
+            padding: var(--spacing-16) 0 var(--spacing-8);
+        }
+
+        .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--spacing-8); margin-bottom: var(--spacing-8); }
+        .footer h3 { color: var(--color-white); margin-bottom: var(--spacing-4); }
+        .footer a { color: rgba(255, 255, 255, 0.8); text-decoration: none; transition: color 0.2s ease; }
+        .footer a:hover { color: var(--color-white); }
+        .footer-bottom { border-top: 1px solid rgba(255, 255, 255, 0.2); padding-top: var(--spacing-4); text-align: center; color: rgba(255, 255, 255, 0.6); }
+
+        .flex { display: flex; }
+        .gap-4 { gap: var(--spacing-4); }
+        .justify-center { justify-content: center; }
+
+        @media (min-width: 768px) {
+            .grid-2 { grid-template-columns: 1fr 1fr; }
+            .container { padding: 0 var(--spacing-8); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-container">
+                <a href="index.html" class="logo">
+                    <img src="../assets/images/logos/Logo_small_square.svg" alt="Cloud Data Consulting, Inc." style="height: 40px; width: auto;">
+                </a>
+                
+                <ul class="nav-links">
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="index.html#methodology">Methodology</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="text-center">
+                <h1>About Cloud Data Consulting</h1>
+                <p class="text-large" style="max-width: 800px; margin: 0 auto;">
+                    We implement strategy, not just recommend. Our expert team transforms AI ambitions into technical reality through proven data methodologies and enterprise-grade solutions.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="section">
+        <div class="container">
+            <div class="grid grid-2 items-center">
+                <div>
+                    <h2>Our Mission</h2>
+                    <p class="text-large">
+                        To bridge the gap between AI ambitions and technical reality by building enterprise-ready data foundations that enable sustainable competitive advantage.
+                    </p>
+                    <p>
+                        Most companies fail at AI not because of the technology, but because their data isn't ready. We solve this fundamental problem by implementing the D.A.T.A.S. methodology—a proven framework that transforms data chaos into AI success.
+                    </p>
+                    <p>
+                        <strong>We don't just consult—we implement.</strong> Our hands-on approach ensures your data strategy becomes your competitive advantage.
+                    </p>
+                </div>
+                
+                <div>
+                    <div style="background: var(--color-gradient-primary); height: 300px; border-radius: var(--border-radius-xl); display: flex; align-items: center; justify-content: center; color: white; font-size: var(--font-size-xl); text-align: center; box-shadow: var(--box-shadow-xl);">
+                        <div>
+                            <div style="font-size: var(--font-size-4xl); margin-bottom: var(--spacing-2);">🎯</div>
+                            <div>Strategy → Implementation</div>
+                            <div style="font-size: var(--font-size-base); opacity: 0.9; margin-top: var(--spacing-2);">We Make It Real</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="section section-light">
+        <div class="container">
+            <div class="text-center">
+                <h2>Proven Results</h2>
+                <p class="text-large" style="margin-bottom: var(--spacing-12);">Our track record speaks for itself</p>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat">
+                    <span class="stat-number">125+</span>
+                    <span class="stat-label">Years Combined Experience</span>
+                </div>
+                
+                <div class="stat">
+                    <span class="stat-number">19+</span>
+                    <span class="stat-label">Data Implementations Delivered</span>
+                </div>
+                
+                <div class="stat">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">Client Success Rate</span>
+                </div>
+                
+                <div class="stat">
+                    <span class="stat-number">75%</span>
+                    <span class="stat-label">AI Projects Fail Without Strategy</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="section">
+        <div class="container">
+            <div class="text-center">
+                <h2>Meet Our Expert Team</h2>
+                <p class="text-large" style="max-width: 700px; margin: 0 auto var(--spacing-12);">
+                    Industry veterans with deep expertise in data strategy, cloud architecture, and AI implementation
+                </p>
+            </div>
+            
+            <div class="team-grid">
+                <div class="team-card">
+                    <img src="../assets/images/team/Bernie_Headshot_Edited_cropped.jpeg" alt="Bernie Pruss" class="team-photo">
+                    <div class="team-info">
+                        <div class="team-name">Bernie Pruss</div>
+                        <div class="team-role">Founder & Principal Consultant</div>
+                        <div class="team-bio">
+                            Enterprise data strategy expert with 25+ years building scalable analytics platforms. Former senior architect at Fortune 500 companies, specializing in AI-ready data transformations.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-card">
+                    <img src="../assets/images/team/Michael-Higgins-Headshot-Evergreen.JPG" alt="Michael Higgins" class="team-photo">
+                    <div class="team-info">
+                        <div class="team-name">Michael Higgins</div>
+                        <div class="team-role">Senior Data Architect</div>
+                        <div class="team-bio">
+                            Cloud-native data platform specialist with expertise in modern data stacks. 15+ years designing enterprise-scale solutions that enable rapid AI deployment and business insights.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-card">
+                    <img src="../assets/images/team/Roy_Altman_Profile.jpeg" alt="Roy Altman" class="team-photo">
+                    <div class="team-info">
+                        <div class="team-name">Roy Altman</div>
+                        <div class="team-role">AI Strategy Advisor</div>
+                        <div class="team-bio">
+                            Executive AI strategist focused on enterprise governance and business alignment. Proven track record helping C-suite leaders translate AI vision into measurable business outcomes.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-card">
+                    <img src="../assets/images/team/AVeneri_Profile.jpeg" alt="Alex Veneri" class="team-photo">
+                    <div class="team-info">
+                        <div class="team-name">Alex Veneri</div>
+                        <div class="team-role">Data Engineering Lead</div>
+                        <div class="team-bio">
+                            Modern data pipeline expert specializing in real-time analytics and ML infrastructure. 12+ years building production systems that scale from startups to enterprise.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-card">
+                    <img src="../assets/images/team/Zohar_profile.jpeg" alt="Zohar Cohen" class="team-photo">
+                    <div class="team-info">
+                        <div class="team-name">Zohar Cohen</div>
+                        <div class="team-role">Cloud Solutions Architect</div>
+                        <div class="team-bio">
+                            Enterprise cloud migration specialist with deep expertise in cost optimization and security. Leads complex data warehouse modernization projects for Fortune 1000 clients.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="team-card">
+                    <img src="../assets/images/team/EvanSkamarock_icon.png" alt="Evan Skamarock" class="team-photo">
+                    <div class="team-info">
+                        <div class="team-name">Evan Skamarock</div>
+                        <div class="team-role">Analytics Engineering Manager</div>
+                        <div class="team-bio">
+                            Business intelligence and analytics expert focused on self-service data platforms. 10+ years transforming raw data into actionable insights for executive decision-making.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Methodology Preview -->
+    <section class="section section-light">
+        <div class="container">
+            <div class="text-center">
+                <h2>The D.A.T.A.S. Methodology</h2>
+                <p class="text-large" style="margin-bottom: var(--spacing-12);">Our proven framework for AI success</p>
+            </div>
+            
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h3 style="color: var(--color-primary);">Diagnose</h3>
+                    <p>Comprehensive AI readiness assessment across 6 critical dimensions</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3 style="color: var(--color-primary);">Analyze</h3>
+                    <p>Identify high-impact AI opportunities with clear ROI projections</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3 style="color: var(--color-primary);">Transform</h3>
+                    <p>Build modern, AI-ready data architecture on cloud platforms</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3 style="color: var(--color-primary);">Accelerate</h3>
+                    <p>Implement quick-win projects that demonstrate immediate value</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3 style="color: var(--color-primary);">Scale</h3>
+                    <p>Create governance frameworks for enterprise AI adoption</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Transform Your Data Strategy?</h2>
+            <p>Join the enterprises using our proven methodology to achieve AI success.</p>
+            <div class="flex gap-4 justify-center" style="flex-wrap: wrap;">
+                <a href="https://meetings.hubspot.com/pruss" target="_blank" class="btn btn-primary btn-large">Schedule Consultation</a>
+                <a href="ai-assessment.html" class="btn btn-primary btn-large" style="background: rgba(255,255,255,0.1); border-color: white;">Get AI Readiness Score</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <img src="../assets/images/logos/CDC_Logo_clear_1280x304px.png" alt="Cloud Data Consulting, Inc." style="height: 60px; width: auto; margin-bottom: var(--spacing-4); filter: brightness(0) invert(1);">
+                    <p style="color: rgba(255,255,255,0.8);">Transforming AI ambitions into technical reality through expert data strategy.</p>
+                </div>
+                
+                <div>
+                    <h3>Services</h3>
+                    <ul style="list-style: none;">
+                        <li style="margin-bottom: var(--spacing-2);"><a href="ai-readiness-assessment.html">AI Readiness Assessment</a></li>
+                        <li style="margin-bottom: var(--spacing-2);"><a href="ai-ready-platform.html">AI-Ready Platform Implementation</a></li>
+                        <li style="margin-bottom: var(--spacing-2);"><a href="data-modernization.html">Data Warehouse Modernization</a></li>
+                        <li style="margin-bottom: var(--spacing-2);"><a href="strategic-enablement.html">Strategic AI Enablement</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3>Contact</h3>
+                    <p style="color: rgba(255,255,255,0.8); margin-bottom: var(--spacing-2);">Ready to make your data AI-ready?</p>
+                    <p style="color: rgba(255,255,255,0.8); margin-bottom: var(--spacing-2);">📧 info@clouddataconsulting.com</p>
+                    <p style="color: rgba(255,255,255,0.8); margin-bottom: var(--spacing-2);">📞 Schedule Your Consultation</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Cloud Data Consulting, Inc. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
