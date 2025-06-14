@@ -45,8 +45,16 @@ provider "aws" {
   }
 }
 
+# Provider for Route53 hosted zone (in cdc-bfp account)
+provider "aws" {
+  alias   = "dns"
+  region  = "us-east-1"
+  profile = "cdc-bfp"
+}
+
 # Data source for existing hosted zone
 data "aws_route53_zone" "main" {
+  provider     = aws.dns
   name         = var.domain_name
   private_zone = false
 }
@@ -134,6 +142,7 @@ resource "aws_acm_certificate" "website" {
 
 # Certificate validation
 resource "aws_route53_record" "website_cert_validation" {
+  provider = aws.dns
   for_each = {
     for dvo in aws_acm_certificate.website.domain_validation_options : dvo.domain_name => {
       name   = dvo.resource_record_name
@@ -286,6 +295,7 @@ resource "aws_cloudfront_distribution" "website" {
 
 # Route53 records
 resource "aws_route53_record" "website" {
+  provider = aws.dns
   zone_id = data.aws_route53_zone.main.zone_id
   name    = var.domain_name
   type    = "A"
@@ -298,6 +308,7 @@ resource "aws_route53_record" "website" {
 }
 
 resource "aws_route53_record" "website_www" {
+  provider = aws.dns
   zone_id = data.aws_route53_zone.main.zone_id
   name    = "www.${var.domain_name}"
   type    = "A"
