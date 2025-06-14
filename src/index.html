@@ -1251,7 +1251,7 @@
         // Save the file and refresh browser to see changes
         
         const CONFIG = {
-            showPricing: false,     // ← CHANGE THIS to false to hide all pricing
+            showPricing: true,      // ← CHANGE THIS to false to hide all pricing
             showTimeframes: true    // ← CHANGE THIS to false to hide timeframes
         };
 
@@ -1384,12 +1384,8 @@
                 navbar.classList.remove('scrolled');
             }
             
-            // Hide/show navbar on scroll direction (optional)
-            if (currentScrollY > lastScrollY && currentScrollY > 200) {
-                navbar.style.transform = 'translateY(-100%)';
-            } else {
-                navbar.style.transform = 'translateY(0)';
-            }
+            // Keep navbar always visible (removed hide/show behavior)
+            navbar.style.transform = 'translateY(0)';
             
             lastScrollY = currentScrollY;
         });
